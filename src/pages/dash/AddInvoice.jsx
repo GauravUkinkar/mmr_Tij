@@ -35,7 +35,8 @@ const AddInvoice = () => {
     "Reschedulling",
     "Activities Booking",
     "Travel Insurance",
-    "Package Booking"
+    "Package Booking",
+    "Passport"
   ];
 
   const status = ["Pending", "Paid", "Failed", "Cancelled"];
