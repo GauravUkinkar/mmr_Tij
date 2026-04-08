@@ -16,21 +16,22 @@ const ContextProvider = ({ children }) => {
   const [currYear, setCurrYear] = useState();
   const [excelData, setExeclData] = useState();
 
-  useEffect(() => {
-    const now = new Date();
-    const currentYear = now.getFullYear();
-    const currentMonth = now.getMonth();
+useEffect(() => {
+  const now = new Date();
+  const currentYear = now.getFullYear();
+  const currentMonth = now.getMonth();
 
-    let financYear;
+  let financYear;
 
-    if (currentMonth >= 4) {
-      financYear = `${currentYear}-${(currentYear + 1).toString()}`;
-    } else {
-      financYear = `${currentYear - 1}-${currentYear.toString()}`;
-    }
+  // April = 3
+  if (currentMonth >= 3) {
+    financYear = `${currentYear}-${currentYear + 1}`;
+  } else {
+    financYear = `${currentYear - 1}-${currentYear}`;
+  }
 
-    setCurrYear(financYear);
-  }, []);
+  setCurrYear(financYear);
+}, []);
 
   function formatNumber(
     value,
