@@ -6,6 +6,7 @@ import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
 import { Space } from "antd";
 import { DataContext } from "../../Context";
+import { toast } from "react-toastify";
 
 function AddClient() {
   const [error, setError] = useState({});
@@ -102,7 +103,7 @@ function AddClient() {
       }
 
       if (response.status === 201) {
-        alert(id ? "Client Updated Successfu!" : "Client Added Successfu!");
+        toast.success(id ? "Client Updated Successfu!" : "Client Added Successfu!");
 
         handleClientList();
 

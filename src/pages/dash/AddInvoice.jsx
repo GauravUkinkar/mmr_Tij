@@ -3,6 +3,7 @@ import Input from "../../comps/Input";
 import { DataContext } from "../../Context";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AddInvoice = () => {
   const {
@@ -196,10 +197,16 @@ const AddInvoice = () => {
   const handleChange = (e) => {
     const value = e.target.value;
 
+     if(value === "Add New Mode of Payment"){
+      setPopUp("Mode of payment");
+      return
+    }
+
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: value,
     }));
+   
   };
 
   const handleBlur = (e) => {
@@ -290,7 +297,7 @@ const AddInvoice = () => {
         );
       }
 
-      alert(id ? "Data updated successfully" : "Data added successfully");
+      toast.success(id ? "Data updated successfully" : "Data added successfully");
       navigate("/");
       window.location.reload();
     } catch (error) {
@@ -350,7 +357,7 @@ const AddInvoice = () => {
         InvoiceDatadata
       );
 
-      alert("Added new Invoice");
+      toast.success("Added new Invoice");
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -370,7 +377,7 @@ const AddInvoice = () => {
       );
 
       if (response.status === 201) {
-        alert("Added new Invoice");
+        toast.success("Added new Invoice");
         handlePaymentList();
         setPopUp("");
 

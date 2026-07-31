@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Login = ({setIsLogin}) => {
   const [error, setError] = useState({});
@@ -50,7 +51,7 @@ const Login = ({setIsLogin}) => {
         );
 
         if (response.status === 200) {
-          alert("Login successful!");
+          toast.success("Login successful!");
        
           localStorage.setItem("login" , true);
           setIsLogin(true);
@@ -58,7 +59,7 @@ const Login = ({setIsLogin}) => {
         }
     } catch (err) {
       console.error("Login error:", err);
-      alert("Login failed. Please try again.");
+      toast.error("Login failed. Please try again.");
     }
   };
   

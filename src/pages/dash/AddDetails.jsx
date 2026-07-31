@@ -160,7 +160,7 @@ const AddDetails = () => {
         );
       }
 
-      alert(id ? "Data updated successfully" : "Data added successfully");
+      toast.success(id ? "Data updated successfully" : "Data added successfully");
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -310,7 +310,7 @@ const AddDetails = () => {
         formData
       );
 
-     alert("Added new Invoice")
+     toast.success("Added new Invoice")
       navigate("/");
     } catch (error) {
       console.log(error);

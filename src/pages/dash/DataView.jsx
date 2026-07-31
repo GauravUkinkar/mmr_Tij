@@ -10,6 +10,7 @@ import moment from "moment";
 import { FaRegFilePdf } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import ExportDataToExcel from "../../comps/ExportData";
+import { toast } from "react-toastify";
 
 const DataView = () => {
   const navigate = useNavigate();
@@ -135,7 +136,7 @@ const DataView = () => {
       );
 
       if (data.status === 201) {
-        alert("data deleted successfully");
+        toast.success("data deleted successfully");
 
         window.location.reload();
       }

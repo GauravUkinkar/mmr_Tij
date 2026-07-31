@@ -24,9 +24,9 @@ const Header = ({ setIsLogin }) => {
           <Link to="/" className="!text-yellow-800">
             Table View
           </Link>
-          <Link to="/add-suport" className="!text-yellow-800">
+          {/* <Link to="/add-suport" className="!text-yellow-800">
             Supporting Data
-          </Link>
+          </Link> */}
 
           <Link
             to="/add-client"

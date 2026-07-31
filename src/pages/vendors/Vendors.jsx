@@ -6,6 +6,7 @@ import { Space } from "antd";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
 import { DataContext } from "../../Context";
+import { toast } from "react-toastify";
 
 function Vendors() {
   const [error, setError] = useState({});
@@ -95,7 +96,7 @@ function Vendors() {
       }
 
       if (response.status === 201) {
-        alert(id ? "Vendors Updated Successfu!" : "Vendors Added Successfu!");
+        toast.success(id ? "Vendors Updated Successfu!" : "Vendors Added Successfu!");
         handleVendorsList();
         setAddVendors({
           name: "",
